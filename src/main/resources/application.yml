@@ -1,0 +1,7 @@
+micronaut:
+  application:
+    name: quantumpoc
+netty:
+  default:
+    allocator:
+      max-order: 3
