@@ -21,7 +21,7 @@ public class RoomController {
 
     @Post()
     public HttpResponse<String> saveRoom(@Body @Valid Room room) {
-        roomRepository.save(room);
+        roomRepository.update(room);
         return HttpResponse.created("Saved successfully !");
     }
 
