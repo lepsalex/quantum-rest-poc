@@ -1,6 +1,7 @@
 package com.alexlepsa;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,8 +15,9 @@ import java.util.UUID;
 public class Room {
     @Id
     @Column(name = "room_id")
-    private UUID roomId;
+    private String roomId;
 
-    @Column(name = "state")
-    private String state;
+    @Column(name = "player_states")
+    @Type(type = "text")
+    private String playerStates;
 }

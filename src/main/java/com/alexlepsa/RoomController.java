@@ -26,7 +26,7 @@ public class RoomController {
     }
 
     @Get("/{roomId}")
-    public HttpResponse<Room> getRoomById(UUID roomId) {
+    public HttpResponse<Room> getRoomById(String roomId) {
         val room = roomRepository.findById(roomId);
         return room.map(HttpResponse::created).orElse(HttpResponse.notFound());
     }
