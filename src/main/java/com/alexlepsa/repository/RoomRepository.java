@@ -1,9 +1,8 @@
-package com.alexlepsa;
+package com.alexlepsa.repository;
 
+import com.alexlepsa.repository.model.Room;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.repository.CrudRepository;
-
-import java.util.UUID;
 
 @Repository
 public interface RoomRepository extends CrudRepository<Room, String> {
