@@ -9,8 +9,7 @@ import lombok.val;
 
 import java.util.List;
 
-import static com.alexlepsa.contoller.common.AuthUtils.AUTH_HEADER;
-import static com.alexlepsa.contoller.common.AuthUtils.isAccountIdAuthed;
+import static com.alexlepsa.contoller.common.AuthUtils.*;
 import static com.alexlepsa.contoller.model.AuthResponse.authResponseOk;
 import static com.alexlepsa.contoller.model.AuthResponse.authResponseUnauthorized;
 
@@ -29,7 +28,7 @@ public class AuthController {
 
     @Post("/room/{roomId}")
     public HttpResponse<String> authRoom(@Header(AUTH_HEADER) String authToken, String roomId) {
-        if (isAccountIdAuthed(authToken) && roomId.equals("alex-demo")) {
+        if (isAccountIdAuthedForRoom(authToken, roomId)) {
             return HttpResponse.ok();
         }
 
