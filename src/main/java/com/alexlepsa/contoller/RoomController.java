@@ -5,6 +5,7 @@ import com.alexlepsa.repository.model.Room;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 import io.micronaut.validation.Validated;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.inject.Inject;
 import lombok.val;
 
@@ -15,6 +16,7 @@ import static com.alexlepsa.contoller.common.AuthUtils.isAccountIdAuthed;
 
 @Validated
 @Controller("/room")
+@Tag(name = "Room State")
 public class RoomController {
 
     @Inject

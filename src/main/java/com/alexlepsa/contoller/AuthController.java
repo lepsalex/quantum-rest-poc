@@ -5,6 +5,7 @@ import io.micronaut.http.HttpHeaders;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 import io.micronaut.validation.Validated;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.val;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import static com.alexlepsa.contoller.model.AuthResponse.authResponseUnauthorize
 
 @Validated
 @Controller("/auth")
+@Tag(name = "Auth")
 public class AuthController {
 
     @Post
