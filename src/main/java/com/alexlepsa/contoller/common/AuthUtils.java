@@ -15,6 +15,7 @@ public class AuthUtils {
     }
 
     public static Boolean isAccountIdAuthedForRoom(final String authToken, final String roomId) {
-        return isAccountIdAuthed(authToken) && roomId.equalsIgnoreCase(ALLOWED_ROOM);
+        var normalizedRoomId = roomId.replaceFirst("\\$", "");
+        return isAccountIdAuthed(authToken) && normalizedRoomId.equalsIgnoreCase(ALLOWED_ROOM);
     }
 }
