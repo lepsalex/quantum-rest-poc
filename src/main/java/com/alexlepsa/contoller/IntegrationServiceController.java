@@ -1,11 +1,14 @@
 package com.alexlepsa.contoller;
 
+import com.alexlepsa.contoller.model.common.AccountId;
 import com.alexlepsa.contoller.model.common.PlayerState;
 import com.alexlepsa.contoller.model.common.SpaceState;
 import com.alexlepsa.contoller.model.request.DeleteStateRequest;
+import com.alexlepsa.contoller.model.request.GetPlayersRequest;
 import com.alexlepsa.contoller.model.request.GetStateRequest;
 import com.alexlepsa.contoller.model.request.SaveStateRequest;
 import com.alexlepsa.contoller.model.response.DeleteStateResponse;
+import com.alexlepsa.contoller.model.response.GetPlayersResponse;
 import com.alexlepsa.contoller.model.response.GetStateResponse;
 import com.alexlepsa.contoller.model.response.SaveStateResponse;
 import com.alexlepsa.repository.RoomRepository;
@@ -63,6 +66,12 @@ public class IntegrationServiceController {
         roomRepository.deleteById(request.getSpaceInstanceId().getId());
 
         return HttpResponse.ok(new DeleteStateResponse(DeleteStateResponse.Result.RESULT_OK));
+    }
+
+    @Post("/getPlayers")
+    @SneakyThrows
+    public HttpResponse<GetPlayersResponse> getPlayers(@Body GetPlayersRequest request) {
+        return HttpResponse.ok(new GetPlayersResponse(GetPlayersResponse.Result.RESULT_OK, List.of(new AccountId("allow"))));
     }
 
     @SneakyThrows
