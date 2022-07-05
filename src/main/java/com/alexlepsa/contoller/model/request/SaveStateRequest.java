@@ -1,7 +1,7 @@
 package com.alexlepsa.contoller.model.request;
 
 import com.alexlepsa.contoller.model.common.PlayerState;
-import com.alexlepsa.contoller.model.common.QuantumVersion;
+import com.alexlepsa.contoller.model.common.BunchverseVersion;
 import com.alexlepsa.contoller.model.common.SpaceState;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,5 +15,5 @@ import java.util.List;
 public class SaveStateRequest {
     private SpaceState space;
     private List<PlayerState> players;
-    private QuantumVersion version;
+    private BunchverseVersion bunchverseVersion;
 }

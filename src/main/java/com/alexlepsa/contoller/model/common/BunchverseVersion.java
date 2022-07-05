@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class QuantumVersion {
-    private Integer version;
+public class BunchverseVersion {
+    private String version;
 }
