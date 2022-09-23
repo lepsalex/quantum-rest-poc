@@ -42,9 +42,14 @@ public class IntegrationServiceController {
     public HttpResponse<SaveStateResponse> saveState(@Body SaveStateRequest request) {
         val room = new Room();
         room.setRoomId(request.getSpace().getSpaceInstanceId().getId());
-        room.setPlayerStates(objectMapper.writeValueAsString(request.getPlayers()));
 
-        roomRepository.save(room);
+        val players = request.getPlayers().stream().filter(playerState -> !playerState.getAccountId().getId().equals("ignore")).toList();
+        room.setPlayerStates(objectMapper.writeValueAsString(players));
+
+        // only save state is there are players to save for it
+        if (!players.isEmpty()) {
+            roomRepository.save(room);
+        }
 
         return HttpResponse.ok(new SaveStateResponse(SaveStateResponse.Result.RESULT_OK));
     }
